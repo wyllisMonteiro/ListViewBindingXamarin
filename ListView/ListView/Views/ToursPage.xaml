@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ListView.Views"
+             x:Class="ListView.Views.ToursPage"
+             x:Name="MyPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label IsVisible="{Binding LabelNbToursIsVisible}"
+                   Text="{Binding LabelNbToursText}"
+                   Margin="0" />
+
+            <ListView ItemsSource="{Binding ItemsSource}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<Button Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPageViewModel}}, Path=GoToNext}"/>-->
+                            <!--<Button Command="{Binding Source={x:Reference MyPage}, Path=BindingContext.tourVM.GoToNext}"/>-->
+                            <!--<Button Command="{Binding GoToNext}"/>-->
+                            <views:TourContentView BindingContext="{Binding Source={x:Reference MyPage}, Path=BindingContext.tourContentVM}"></views:TourContentView>
+                            <!--<local:tourContentView BindingContext="{Binding Source={RelativeSource AncestorType={x:Type local:MainPageViewModel}}, Path=GoToNext}"></local:tourContentView>-->
+                        </ViewCell>
+                        <!--<local:tourCell BindingContext="{RelativeSource AncestorType={x:Type local:MainPageViewModel}}"></local:tourCell>-->
+                        <!--<local:tourCell BindingContext="{Binding Source={x:Reference MyPage}, Path=BindingContext.tourVM}"></local:tourCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

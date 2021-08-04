@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListView.Views.TourContentView">
+    
+    <ContentView.Content>
+        <Grid AbsoluteLayout.LayoutFlags="All"
+          AbsoluteLayout.LayoutBounds="{OnPlatform Android='0.9,1,0.35,.3', iOS='.9,1,.35,.25'}"
+          BackgroundColor="#e0e0e0">
+            <!-- I want to bind Title with Models.Tour.Title -->
+            <!-- This field does not appear -->
+            <Label Text="{Binding Title}"/>
+            <Label Text="{Binding Text}"/>
+            
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoToNext}" />
+            </Grid.GestureRecognizers>
+        </Grid>
+    </ContentView.Content>
+    
+</ContentView>
